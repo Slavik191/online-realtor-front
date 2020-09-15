@@ -1,6 +1,11 @@
 import axios from "axios";
+import https from "https";
 
-
+const instance = axios.create({
+  httpsAgent: new https.Agent({  
+    rejectUnauthorized: false
+  })
+});
 
 class RealtorApiServices {
   constructor(restUrl) {
@@ -13,7 +18,7 @@ class RealtorApiServices {
     console.log(url)
     console.log(Username, Password)
 
-    return axios.post(url, {
+    return instance.post(url, {
       Username,
       Password
     });
@@ -23,7 +28,7 @@ class RealtorApiServices {
     const url = this.restUrl + "/api/General";
 
     console.log(url)
-    return axios.get(url);
+    return instance.get(url);
   }
 
   // balance(to, coin) {
