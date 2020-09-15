@@ -19,6 +19,13 @@ class RealtorApiServices {
     });
   }
 
+  announcements() {
+    const url = this.restUrl + "/api/General";
+
+    console.log(url)
+    return axios.get(url);
+  }
+
   // balance(to, coin) {
   //   const url = this.restUrl + "/balance";
 

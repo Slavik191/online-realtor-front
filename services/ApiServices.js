@@ -10,6 +10,12 @@ class ApiService {
     const url = `/api/auth?email=${email}&password=${password}`;
     return fetcher(url);
   }
+
+  announcements() {
+    return useSwr("/api/announcements", fetcher, {
+      refreshInterval: REFRESH_INTERVAL
+    });
+  }
   
   // balance(coin) {
   //   return useSwr(`/api/balance?coin=${coin}`, fetcher, {

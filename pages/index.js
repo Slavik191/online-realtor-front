@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 
+import ApiServices from "../services/ApiServices";
+
 import Header from "../components/Header/Header";
 import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import Announcements from "../components/Announcements/Announcements";
@@ -21,7 +23,7 @@ const Index = ({ userInfo }) => {
   //   if (userInfo) setUser(userInfo);
   // }, []);
 
-  let data = [
+  let data1 = [
     {
       "photo": [
         "https://1house.by/wp-content/uploads/2019/01/6-konechn.jpg",
@@ -110,6 +112,8 @@ const Index = ({ userInfo }) => {
     }
   ]
 
+  const { data } = ApiServices.announcements();
+
   return (
     <>
       <Head>
@@ -118,7 +122,7 @@ const Index = ({ userInfo }) => {
       <Header />
       <main style={{ padding: "30px 0" }}>
         <ContentWrapper>
-          <Announcements announcements={data} />
+          <Announcements announcements={data ? data : data1} />
         </ContentWrapper>
       </main>
     </>
