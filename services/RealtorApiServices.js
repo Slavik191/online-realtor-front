@@ -18,11 +18,11 @@ class RealtorApiServices {
     console.log(url)
     console.log(username, password)
 
-    return instance.post(url, {
-      grant_type: 'password',
-      username: "admin@mail.ru",
-      password: "a-123456Z"
-    });
+    return instance.post(url, 
+      "grant_type=" + 'password' +
+      "&username=" + "admin@mail.ru" +
+      "&password=" + "a-123456Z"
+    );
   }
 
   announcements() {
