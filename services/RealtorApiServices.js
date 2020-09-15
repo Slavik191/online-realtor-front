@@ -12,7 +12,7 @@ class RealtorApiServices {
     this.restUrl = restUrl
   }
 
-  auth(username, password) {
+  auth(Username, Password) {
     const url = this.restUrl + "/Token";
 
     console.log(url)
@@ -20,8 +20,8 @@ class RealtorApiServices {
 
     return instance.post(url, {
       grant_type: 'password',
-      username,
-      password
+      Username,
+      Password
     });
   }
 

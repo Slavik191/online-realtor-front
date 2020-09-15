@@ -13,7 +13,7 @@ class ApiService {
 
   announcements() {
     return useSwr("/api/announcements", fetcher, {
-      refreshInterval: REFRESH_INTERVAL
+      // refreshInterval: REFRESH_INTERVAL
     });
   }
   
