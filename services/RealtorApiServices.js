@@ -13,7 +13,7 @@ class RealtorApiServices {
   }
 
     auth(username, password) {
-    const url = this.restUrl + "/Token";
+    const url = this.restUrl + "/oauth/token";
   
     console.log(url)
     console.log(username, password)
