@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -9,7 +9,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import ApiServices from "../../services/ApiServices";
 
+import { Context } from "../context/UserContext";
+
 const SignIn = ({ open, handleClose }) => {
+  const { signIn } = useContext(Context);  
+  
   const email = useRef('');
   const password = useRef('');
 
@@ -19,7 +23,8 @@ const SignIn = ({ open, handleClose }) => {
         email.current.value,
         password.current.value
       );
-      console.log(result);
+
+      signIn(result);
     } catch (e) {
       console.log(e);
     }

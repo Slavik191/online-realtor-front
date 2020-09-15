@@ -15,13 +15,10 @@ class RealtorApiServices {
     auth(username, password) {
     const url = this.restUrl + "/Token";
   
-    console.log(url)
-    console.log(username, password)
-
     return instance.post(url, 
-      "grant_type=" + 'password' +
-      "&username=" + "admin@mail.ru" +
-      "&password=" + "a-123456Z"
+      "grant_type=" + "password" +
+      "&username=" + username +
+      "&password=" + password
     );
   }
 

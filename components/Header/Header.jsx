@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+
+import { toCabinet } from "../../utils/routesUtil";
 
 import { Context } from "../context/UserContext";
 
@@ -14,13 +17,19 @@ import SignIn from "../SignIn/SignIn";
 export default function ClippedDrawer() {
   const classes = useStyles();
 
-  const { user } = useContext(Context);
+  const { user, signUp } = useContext(Context);
+
+  console.log(user)
 
   const [showPopUp, setShowPopUp] = useState(false);
 
   const openPopUp = () => setShowPopUp(true);
 
   const closePopUp = () => setShowPopUp(false);
+
+  const cabinet = () => {
+    toCabinet(user.role);
+  }
 
   const getButtons = () => {
     if(!user){
@@ -32,10 +41,10 @@ export default function ClippedDrawer() {
     } else {
       return(
         <div className={classes.buttons}>
-          <Button variant="outlined" color="primary">
+          <Button onClick={cabinet} variant="outlined" color="primary">
             кабинет
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button onClick={signUp} variant="outlined" color="primary">
             выйти
           </Button>
         </div>
