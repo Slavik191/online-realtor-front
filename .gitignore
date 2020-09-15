@@ -1,0 +1,8 @@
+build
+build-lib
+.idea
+node_modules
+.vscode
+.next
+.DS_Store
+.env
