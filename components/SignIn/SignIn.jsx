@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,7 +7,24 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import ApiServices from "../../services/ApiServices";
+
 const SignIn = ({ open, handleClose }) => {
+  const email = useRef('');
+  const password = useRef('');
+
+  const submit = async () => {
+    try {
+      const result = await ApiServices.auth(
+        email.current.value,
+        password.current.value
+      );
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
 
   return (
     <div>
@@ -19,6 +37,7 @@ const SignIn = ({ open, handleClose }) => {
             id="name"
             label="e-mail"
             type="email"
+            inputRef={email}
             fullWidth
           />
           <TextField
@@ -26,6 +45,7 @@ const SignIn = ({ open, handleClose }) => {
             id="name"
             label="пароль"
             type="password"
+            inputRef={password}
             fullWidth
           />
         </DialogContent>
@@ -33,7 +53,7 @@ const SignIn = ({ open, handleClose }) => {
           <Button onClick={handleClose} color="primary">
             Закрыть
           </Button>
-          <Button color="primary">
+          <Button onClick={submit} color="primary">
             Войти
           </Button>
         </DialogActions>
