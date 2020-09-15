@@ -45,13 +45,13 @@ class RealtorApiServices {
   deleteAnnouncement(tokenType, token, contractID) {
     const url = this.restUrl + "/api/admin/DellProp";
 
-    return instance.get(url, { contractID } , getHeaderToken(tokenType, token));
+    return instance.delete(url, { contractID } , getHeaderToken(tokenType, token));
   }
 
   confirmAnnouncement(tokenType, token, contractID) {
     const url = this.restUrl + "/api/admin/Confirm";
 
-    return instance.get(url, { contractID } , getHeaderToken(tokenType, token));
+    return instance.put(url, { contractID } , getHeaderToken(tokenType, token));
   }
   
   // balance(to, coin) {
