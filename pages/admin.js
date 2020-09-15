@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 
+import ApiServices from "../services/ApiServices";
+
 import AdminPanel from "../components/AdminPanel/AdminPanel";
 // import middleware from '../lib/middleware'
 

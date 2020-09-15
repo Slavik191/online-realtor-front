@@ -7,6 +7,14 @@ const instance = axios.create({
   })
 });
 
+const getHeaderToken = (tokenType, token) => {
+  return {
+    headers: {
+      'Authorization': `${tokenType} ${token}`
+    }
+  }
+}
+
 class RealtorApiServices {
   constructor(restUrl) {
     this.restUrl = restUrl
@@ -25,10 +33,15 @@ class RealtorApiServices {
   announcements() {
     const url = this.restUrl + "/api/General";
 
-    console.log(url)
     return instance.get(url);
   }
 
+  newAnnouncements(tokenType, token) {
+    const url = this.restUrl + "/api/admin/ChekProp";
+
+    return instance.get(url, getHeaderToken(tokenType, token));
+  }
+  
   // balance(to, coin) {
   //   const url = this.restUrl + "/balance";
 

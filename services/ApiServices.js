@@ -16,6 +16,12 @@ class ApiService {
       // refreshInterval: REFRESH_INTERVAL
     });
   }
+
+  newAnnouncements(tokenType, token) {
+    return useSwr(`/api/new-announcements?tokenType=${tokenType}&token=${token}`, fetcher, {
+      // refreshInterval: REFRESH_INTERVAL
+    });
+  }
   
   // balance(coin) {
   //   return useSwr(`/api/balance?coin=${coin}`, fetcher, {
