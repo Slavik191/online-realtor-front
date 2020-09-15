@@ -41,6 +41,18 @@ class RealtorApiServices {
 
     return instance.get(url, getHeaderToken(tokenType, token));
   }
+
+  deleteAnnouncement(tokenType, token, contractID) {
+    const url = this.restUrl + "/api/admin/DellProp";
+
+    return instance.get(url, { contractID } , getHeaderToken(tokenType, token));
+  }
+
+  confirmAnnouncement(tokenType, token, contractID) {
+    const url = this.restUrl + "/api/admin/Confirm";
+
+    return instance.get(url, { contractID } , getHeaderToken(tokenType, token));
+  }
   
   // balance(to, coin) {
   //   const url = this.restUrl + "/balance";

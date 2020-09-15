@@ -24,5 +24,17 @@ export const useStyles = makeStyles((theme) => ({
   },
   address: {
     margin: "20px 0 0 0"
+  },
+  buttons: {
+    display: "flex",
+    marginTop: "20px",
+
+    "&>button:not(:first-child)": {
+      marginLeft: "20px"
+    }
+  },
+  error: {
+    borderColor: "#ff3333",
+    color: "#ff3333"
   }
 }));

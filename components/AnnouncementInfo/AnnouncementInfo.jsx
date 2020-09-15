@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
+import Button from '@material-ui/core/Button';
+
+import ApiServices from "../../services/ApiServices";
 
 import { useStyles } from "./AnnouncementInfoStyle";
+
+import { Context } from "../context/UserContext";
 
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import ImagesSlider from "../ImagesSlider/ImagesSlider";
@@ -14,8 +19,42 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const AnnouncementInfo = ({ data, open, closeDialog }) => {
+const AnnouncementInfo = ({ 
+  open,
+  data,
+  adminButtons, 
+  closeDialog 
+}) => {
   const classes = useStyles();
+  const { user } = useContext(Context);
+
+  const deleteAnnouncement = async () => {
+    try {
+      await ApiServices.deleteAnnouncement(
+        user.tokenType,
+        user.token,
+        data.properti.contractID
+      );
+      
+      closeDialog();
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const confirmAnnouncement = async () => {
+    try {
+      await ApiServices.confirmAnnouncement(
+        user.tokenType,
+        user.token,
+        data.properti.contractID
+      );
+
+      closeDialog();
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <div>
@@ -50,8 +89,21 @@ const AnnouncementInfo = ({ data, open, closeDialog }) => {
               <div className={classes.address}>
                 <Typography component={"p"}>
                   Телефон Риэлтора: {data.Phone} ({data.name})
-              </Typography>
+                </Typography>
               </div>
+              {adminButtons && (
+                <div className={classes.buttons}>
+                  <Button onClick={deleteAnnouncement} className={classes.error} variant="outlined">
+                    удалить
+                  </Button>
+                  <Button variant="outlined" color="primary">
+                    изменить 
+                  </Button>
+                  <Button onClick={confirmAnnouncement} variant="outlined" color="primary">
+                    подтвердить 
+                  </Button>
+                </div>
+              )}
             </div>
           </ContentWrapper>
         )}

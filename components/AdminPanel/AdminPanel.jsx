@@ -38,7 +38,10 @@ const AdminPanel = () => {
   return (
     <ResponsiveDrawer menu={menu}>
       {(selectItem === 1 || selectItem === 2) && (
-        <Announcements announcements={selectItem === 1 ? announcements : newAnnouncements} />
+        <Announcements 
+          announcements={selectItem === 1 ? announcements : newAnnouncements} 
+          adminButtons={selectItem === 2}
+        />
       )} 
     </ResponsiveDrawer>
   );

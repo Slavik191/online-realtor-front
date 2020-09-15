@@ -22,6 +22,14 @@ class ApiService {
       // refreshInterval: REFRESH_INTERVAL
     });
   }
+
+  deleteAnnouncement(tokenType, token, contractID) {
+    return fetcher(`/api/delete-announcement?tokenType=${tokenType}&token=${token}&contractID=${contractID}`); 
+  }
+
+  confirmAnnouncement(tokenType, token, contractID) {
+    return fetcher(`/api/confirm-announcement?tokenType=${tokenType}&token=${token}&contractID=${contractID}`); 
+  }
   
   // balance(coin) {
   //   return useSwr(`/api/balance?coin=${coin}`, fetcher, {

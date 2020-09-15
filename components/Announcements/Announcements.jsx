@@ -4,7 +4,10 @@ import GridWrapper from "../GridWrapper/GridWrapper";
 import AnnouncementCard from "../cards/AnnouncementCard/AnnouncementCard";
 import AnnouncementInfo from "../AnnouncementInfo/AnnouncementInfo";
 
-const Announcements = ({ announcements = [] }) => {
+const Announcements = ({ 
+  announcements = [],
+  adminButtons
+}) => {
   let [selectAnnouncement, setSelectAnnouncement] = useState(null);
 
   const closeDialog = () => setSelectAnnouncement(null);
@@ -23,6 +26,7 @@ const Announcements = ({ announcements = [] }) => {
       <AnnouncementInfo 
         open={selectAnnouncement ? true : false} 
         data={selectAnnouncement}
+        adminButtons={adminButtons}
         closeDialog={closeDialog}
       />
     </>
