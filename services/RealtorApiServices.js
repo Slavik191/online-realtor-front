@@ -55,7 +55,7 @@ class RealtorApiServices {
   }
 
   statistics(tokenType, token) {
-    const url = encodeURI(this.restUrl + "/api/admin/statistic?mounts=2&years=2020&city=Минск");
+    const url = encodeURI(this.restUrl + "/api/admin/statistic?mounts=2&years=2020&city=all");
 
     return instance.get(url, getHeaderToken(tokenType, token));
   }
