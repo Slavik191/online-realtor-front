@@ -42,6 +42,7 @@ const SignIn = ({ open, handleClose }) => {
             id="name"
             label="e-mail"
             type="email"
+            defaultValue="admin@mail.ru"
             inputRef={email}
             fullWidth
           />
@@ -50,6 +51,7 @@ const SignIn = ({ open, handleClose }) => {
             id="name"
             label="пароль"
             type="password"
+            defaultValue="a-123456Z"
             inputRef={password}
             fullWidth
           />
