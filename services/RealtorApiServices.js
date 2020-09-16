@@ -47,6 +47,7 @@ class RealtorApiServices {
 
     return instance.delete(url, {
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': `${tokenType} ${token}`
       },
       data: { contractID }
