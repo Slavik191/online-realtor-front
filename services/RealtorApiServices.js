@@ -53,6 +53,12 @@ class RealtorApiServices {
 
     return instance.put(url, { contractID } , getHeaderToken(tokenType, token));
   }
+
+  statistics(tokenType, token) {
+    const url = this.restUrl + "/api/admin/statistic?mounts=2&years=2020&city=Минск";
+
+    return instance.get(url, getHeaderToken(tokenType, token));
+  }
   
   // balance(to, coin) {
   //   const url = this.restUrl + "/balance";

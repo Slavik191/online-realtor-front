@@ -154,7 +154,7 @@ const ResponsiveDrawer = (props) => {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        <div id={"toolbar"} className={classes.toolbar} />
         {children}
       </main>
     </div>

@@ -6,6 +6,7 @@ import { Context } from "../context/UserContext";
 
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
 import Announcements from "../Announcements/Announcements";
+import Statistics from "../Statistics/Statistics";
 
 const AdminPanel = () => {
   const [selectItem, setSelectItem] = useState(1); 
@@ -42,6 +43,9 @@ const AdminPanel = () => {
           announcements={selectItem === 1 ? announcements : newAnnouncements} 
           adminButtons={selectItem === 2}
         />
+      )}
+      {selectItem === 3 && (
+        <Statistics />
       )} 
     </ResponsiveDrawer>
   );

@@ -1,0 +1,10 @@
+import { makeStyles } from '@material-ui/core/styles';
+
+export const useStyles = makeStyles((theme) => ({
+  title: {
+    marginBottom: "30px",
+    textAlign: "center",
+    fontSize: "30px",
+    fontWeight: 600
+  }
+}));

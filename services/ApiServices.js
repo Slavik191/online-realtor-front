@@ -30,6 +30,12 @@ class ApiService {
   confirmAnnouncement(tokenType, token, contractID) {
     return fetcher(`/api/confirm-announcement?tokenType=${tokenType}&token=${token}&contractID=${contractID}`); 
   }
+
+  statistics(tokenType, token) {
+    return useSwr(`/api/statistics?tokenType=${tokenType}&token=${token}`, fetcher, {
+      // refreshInterval: REFRESH_INTERVAL
+    });
+  }
   
   // balance(coin) {
   //   return useSwr(`/api/balance?coin=${coin}`, fetcher, {
