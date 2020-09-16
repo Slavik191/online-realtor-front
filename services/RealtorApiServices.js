@@ -56,8 +56,11 @@ class RealtorApiServices {
 
   statistics(tokenType, token) {
     const url = encodeURI(this.restUrl + "/api/admin/statistic?mounts=2&years=2020&city=all");
-
-    return instance.get(url, getHeaderToken(tokenType, token));
+    
+    const headers = getHeaderToken(tokenType, token).headers;
+    headers['Content-Type'] = 'application/json';
+    
+    return instance.get(url, { headers });
   }
   
   // balance(to, coin) {
