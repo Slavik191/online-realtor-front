@@ -54,8 +54,8 @@ class RealtorApiServices {
     return instance.put(url, { contractID } , getHeaderToken(tokenType, token));
   }
 
-  statistics(tokenType, token) {
-    const url = encodeURI(this.restUrl + "/api/admin/statistic?mounts=2&years=2020&city=all");
+  statistics(tokenType, token, month) {
+    const url = encodeURI(this.restUrl + `/api/admin/statistic?mounts=${month}&years=2020&city=all`);
     
     const headers = getHeaderToken(tokenType, token).headers;
     headers['Content-Type'] = 'application/json';

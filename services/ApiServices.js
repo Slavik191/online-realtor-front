@@ -31,8 +31,8 @@ class ApiService {
     return fetcher(`/api/confirm-announcement?tokenType=${tokenType}&token=${token}&contractID=${contractID}`); 
   }
 
-  statistics(tokenType, token) {
-    return useSwr(`/api/statistics?tokenType=${tokenType}&token=${token}`, fetcher, {
+  statistics(tokenType, token, month) {
+    return useSwr(`/api/statistics?tokenType=${tokenType}&token=${token}&month=${month}`, fetcher, {
       // refreshInterval: REFRESH_INTERVAL
     });
   }
