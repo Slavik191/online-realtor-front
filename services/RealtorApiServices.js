@@ -45,13 +45,7 @@ class RealtorApiServices {
   deleteAnnouncement(tokenType, token, contractID) {
     const url = this.restUrl + "/api/admin/DellProp";
 
-    return instance.delete(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `${tokenType} ${token}`
-      },
-      data: { contractID }
-    });
+    return instance.post(url, { contractID } , getHeaderToken(tokenType, token));
   }
 
   confirmAnnouncement(tokenType, token, contractID) {
