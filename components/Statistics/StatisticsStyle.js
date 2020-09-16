@@ -4,13 +4,13 @@ export const useStyles = makeStyles((theme) => ({
   row: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: "30px",
   },
   formControl: {
     minWidth: "100px"
   },
   title: {
-    marginBottom: "30px",
     fontSize: "25px",
     fontWeight: 600
   }
